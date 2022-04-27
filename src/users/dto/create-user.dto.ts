@@ -1,24 +1,23 @@
 import { IsNumber, IsString } from 'class-validator';
 
+
 export class CreateUserDto {
   @IsString()
-  readonly name: string;
+  nome: string;
   @IsString()
-  readonly cpf: string;
+  cpf: string;
+  @IsString()
+  cep: number;
+  @IsString()
+  telefone: string;
+  @IsString()
+  logradouro: string;
   @IsNumber()
-  readonly cep: number;
+  numero: number;
   @IsString()
-  readonly address: string;
-  @IsNumber()
-  readonly number: number;
+  cidade: string;
   @IsString()
-  readonly city: string;
-  @IsString()
-  readonly state: string;
-  @IsString()
-  readonly country: string;
-  @IsString()
-  readonly email: string;
+  estado: string;
   @IsString()
   password: string;
 }

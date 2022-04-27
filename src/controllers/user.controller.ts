@@ -7,10 +7,13 @@ import {
   Param,
   Patch,
   Post,
+  ClassSerializerInterceptor,
+  SerializeOptions
 } from '@nestjs/common';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { UpdateUserDto } from '../users/dto/update-user.dto';
 import { UserService } from '../services/user.service';
+
 
 @Controller('user')
 export class UserController {

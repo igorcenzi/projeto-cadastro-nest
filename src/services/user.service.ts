@@ -1,4 +1,10 @@
-import { HttpCode, HttpException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpCode,
+  HttpException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from '../users/dto/create-user.dto';
@@ -24,6 +30,9 @@ export class UserService {
 
   async findOne(id: string) {
     const user = await this.userRepository.findOne({ where: { id: +id } });
+    if (!user) {
+      throw new NotFoundException('Usuário não encontrado.');
+    }
     delete user.password;
     return user;
   }
@@ -37,8 +46,11 @@ export class UserService {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
+    if (updateUserDto.cpf) {
+      throw new BadRequestException(`Não é possível alterar o CPF.`);
+    }
     const user = await this.userRepository.preload({
-      id: +id,
+      id: id,
       ...updateUserDto,
     });
     if (!user) {
@@ -48,7 +60,7 @@ export class UserService {
   }
 
   async remove(id: string) {
-    const user = await this.userRepository.findOne({ where: { id: +id } });
+    const user = await this.userRepository.findOne({ where: { id: id } });
     if (!user) {
       throw new NotFoundException(`User ID: ${id} Not Found.`);
     }

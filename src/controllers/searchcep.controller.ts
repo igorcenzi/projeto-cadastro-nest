@@ -1,7 +1,5 @@
 import { HttpService } from '@nestjs/axios';
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
-import { AxiosResponse } from 'axios';
-import { Observable } from 'rxjs';
+import { Controller, Get, Param } from '@nestjs/common';
 import { SerchCepService } from 'src/services/serchcep.service';
 
 @Controller('cep')

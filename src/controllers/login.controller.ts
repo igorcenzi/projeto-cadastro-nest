@@ -1,7 +1,3 @@
-/*
-https://docs.nestjs.com/controllers#controllers
-*/
-
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { LoginService } from 'src/services/login.service';
 import { LoginDto } from 'src/users/dto/login-dto';
