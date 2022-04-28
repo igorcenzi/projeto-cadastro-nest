@@ -34,6 +34,7 @@ const DashboardPage = () => {
 
   const handleEditUser = async (data) => {
     delete data.cpf;
+    data.cep = Number(data.cep);
     await axios
       .patch(`http://localhost:3000/user/${id}`, data)
       .then(() => {
@@ -46,6 +47,7 @@ const DashboardPage = () => {
           position: toast.POSITION.TOP_CENTER,
         });
       });
+      console.log(data)
   };
 
   const handleSearchUser = async () => {
@@ -70,7 +72,7 @@ const DashboardPage = () => {
           setValue("nome", data.nome);
           setValue("cpf", data.cpf);
           setValue("telefone", data.telefone);
-          setValue("cep", data.cep);
+          setValue("cep", Number(data.cep));
           setValue("logradouro", data.logradouro);
           setValue("numero", data.numero);
           setValue("cidade", data.cidade);
