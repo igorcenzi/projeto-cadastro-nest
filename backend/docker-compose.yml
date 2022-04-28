@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=postgres
+    volumes:
+      - .docker/dbdata:/var/lib/postgresqldata
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  dbtest:
+    container_name: postgre-test
+    image: postgres
+    restart: always
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=postgrestest
+    volumes:
+      - .docker/dbdatatest:/var/lib/postgresqldata
