@@ -9,6 +9,7 @@ const StyledContainer = styled.div`
 
   *{
     width: 100%;
+    margin-bottom: 12px;
   }
 `
 export default StyledContainer
