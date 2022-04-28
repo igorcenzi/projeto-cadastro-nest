@@ -13,7 +13,6 @@ a senha, gerando uma nova.
 - Yarn
 - Docker
 - Docker-compose cli
-- Nest cli
 
 ### Baixando nosso repositório do projeto:
 Execute o comando a seguir no seu terminal:
