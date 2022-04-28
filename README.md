@@ -32,7 +32,7 @@ yarn
 Com as dependências baixadas, temos que rodar o docker-compose para gerar os containers do Redis e do Postgres
 
 ```
-comando docker-compose up -d
+docker-compose up -d
 ```
 
 Agora que os containers estão prontos, podemos executar os testes e2e:
