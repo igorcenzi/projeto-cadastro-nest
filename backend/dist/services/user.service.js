@@ -31,14 +31,10 @@ let UserService = class UserService {
         users.map((user) => delete user.password);
         return users;
     }
-    async findOne(id) {
-        const isUuid = (0, class_validator_1.isUUID)(id);
-        if (!isUuid) {
-            throw new common_1.NotFoundException(`User ID: ${id} Not Found.`);
-        }
-        const user = await this.userRepository.findOne(id);
+    async findOne(cpf) {
+        const user = await this.userRepository.findOne({ where: { cpf: cpf } });
         if (!user) {
-            throw new common_1.NotFoundException(`User ID: ${id} Not Found.`);
+            throw new common_1.NotFoundException(`User CPF: ${cpf} Not Found.`);
         }
         delete user.password;
         return user;

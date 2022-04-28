@@ -29,14 +29,10 @@ export class UserService {
     return users;
   }
 
-  async findOne(id: string) {
-    const isUuid = isUUID(id)
-    if(!isUuid){
-      throw new NotFoundException(`User ID: ${id} Not Found.`);
-    }
-    const user = await this.userRepository.findOne(id);
+  async findOne(cpf: string) {
+    const user = await this.userRepository.findOne({where: {cpf: cpf}});
     if (!user) {
-      throw new NotFoundException(`User ID: ${id} Not Found.`);
+      throw new NotFoundException(`User CPF: ${cpf} Not Found.`);
     }
     delete user.password;
     return user;

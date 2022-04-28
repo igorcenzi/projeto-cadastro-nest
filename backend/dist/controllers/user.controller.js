@@ -24,8 +24,8 @@ let UserController = class UserController {
     async findAll() {
         return await this.userService.findAll();
     }
-    async findOne(id) {
-        return await this.userService.findOne(id);
+    async findOne(cpf) {
+        return await this.userService.findOne(cpf);
     }
     async create(createUserDto) {
         return await this.userService.create(createUserDto);
@@ -44,8 +44,8 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
+    (0, common_1.Get)(':cpf'),
+    __param(0, (0, common_1.Param)('cpf')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)

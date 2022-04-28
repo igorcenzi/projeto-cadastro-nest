@@ -6,7 +6,7 @@ export declare class UserService {
     private readonly userRepository;
     constructor(userRepository: Repository<User>);
     findAll(): Promise<User[]>;
-    findOne(id: string): Promise<User>;
+    findOne(cpf: string): Promise<User>;
     create(CreateUserDto: CreateUserDto): Promise<User>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<User>;
     remove(id: string): Promise<import("typeorm").DeleteResult>;
